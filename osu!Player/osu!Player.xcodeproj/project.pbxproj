@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E97913B62A50A84D0061B746 /* osu_PlayerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97913B52A50A84D0061B746 /* osu_PlayerApp.swift */; };
+		E97913B82A50A84D0061B746 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97913B72A50A84D0061B746 /* MainView.swift */; };
+		E97913BA2A50A84F0061B746 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E97913B92A50A84E0061B746 /* Assets.xcassets */; };
+		E97913BD2A50A84F0061B746 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E97913BC2A50A84F0061B746 /* Preview Assets.xcassets */; };
+		E97D10232A807EF5005A27DF /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E97D10222A807EF5005A27DF /* MainController.swift */; };
+		E97E56DC2A53675A004B77F3 /* triangles.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = E97E56DB2A53675A004B77F3 /* triangles.mp3 */; };
+		E98F1CF62AAA333000657D28 /* SongView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F1CF52AAA333000657D28 /* SongView.swift */; };
+		E98F1CF82AAA339200657D28 /* PlaylistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F1CF72AAA339200657D28 /* PlaylistView.swift */; };
+		E98F1CFA2AAA340A00657D28 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F1CF92AAA340A00657D28 /* SettingsView.swift */; };
+		E98F1CFC2AAA345100657D28 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F1CFB2AAA345100657D28 /* ChatView.swift */; };
+		E98F1CFE2AAA351E00657D28 /* RefChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E98F1CFD2AAA351E00657D28 /* RefChatView.swift */; };
+		E99EF45B2AA8EE190049BB03 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E99EF45A2AA8EE190049BB03 /* MainMenuView.swift */; };
+		E9A120452A7EED1D0000540F /* MarqueeText in Frameworks */ = {isa = PBXBuildFile; productRef = E9A120442A7EED1D0000540F /* MarqueeText */; };
+		E9A519222A816F9600DFB28F /* KeystrokeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9A519212A816F9600DFB28F /* KeystrokeView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E926E0BF2A52084200DF957D /* osu-Player-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "osu-Player-Info.plist"; sourceTree = SOURCE_ROOT; };
+		E97913B22A50A84D0061B746 /* osu!Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "osu!Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E97913B52A50A84D0061B746 /* osu_PlayerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = osu_PlayerApp.swift; sourceTree = "<group>"; };
+		E97913B72A50A84D0061B746 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		E97913B92A50A84E0061B746 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E97913BC2A50A84F0061B746 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		E97D10222A807EF5005A27DF /* MainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		E97E56DB2A53675A004B77F3 /* triangles.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = triangles.mp3; path = "../../../../osu!Player Assets/triangles.mp3"; sourceTree = "<group>"; };
+		E98F1CF52AAA333000657D28 /* SongView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SongView.swift; sourceTree = "<group>"; };
+		E98F1CF72AAA339200657D28 /* PlaylistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistView.swift; sourceTree = "<group>"; };
+		E98F1CF92AAA340A00657D28 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		E98F1CFB2AAA345100657D28 /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
+		E98F1CFD2AAA351E00657D28 /* RefChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefChatView.swift; sourceTree = "<group>"; };
+		E99EF45A2AA8EE190049BB03 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		E9A519212A816F9600DFB28F /* KeystrokeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeystrokeView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E97913AF2A50A84D0061B746 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9A120452A7EED1D0000540F /* MarqueeText in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E97913A92A50A84D0061B746 = {
+			isa = PBXGroup;
+			children = (
+				E97913B42A50A84D0061B746 /* osu!Player */,
+				E97913B32A50A84D0061B746 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E97913B32A50A84D0061B746 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E97913B22A50A84D0061B746 /* osu!Player.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E97913B42A50A84D0061B746 /* osu!Player */ = {
+			isa = PBXGroup;
+			children = (
+				E97D10242A807F1B005A27DF /* Views */,
+				E97D10212A807ED1005A27DF /* Controllers */,
+				E926E0BF2A52084200DF957D /* osu-Player-Info.plist */,
+				E97913C32A50CAAC0061B746 /* audio */,
+				E97913B52A50A84D0061B746 /* osu_PlayerApp.swift */,
+				E97913B92A50A84E0061B746 /* Assets.xcassets */,
+				E97913BC2A50A84F0061B746 /* Preview Assets.xcassets */,
+			);
+			path = "osu!Player";
+			sourceTree = "<group>";
+		};
+		E97913C32A50CAAC0061B746 /* audio */ = {
+			isa = PBXGroup;
+			children = (
+				E97E56DB2A53675A004B77F3 /* triangles.mp3 */,
+			);
+			path = audio;
+			sourceTree = "<group>";
+		};
+		E97D10212A807ED1005A27DF /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E97D10222A807EF5005A27DF /* MainController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E97D10242A807F1B005A27DF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E97913B72A50A84D0061B746 /* MainView.swift */,
+				E9A519212A816F9600DFB28F /* KeystrokeView.swift */,
+				E99EF45A2AA8EE190049BB03 /* MainMenuView.swift */,
+				E98F1CF52AAA333000657D28 /* SongView.swift */,
+				E98F1CF72AAA339200657D28 /* PlaylistView.swift */,
+				E98F1CF92AAA340A00657D28 /* SettingsView.swift */,
+				E98F1CFB2AAA345100657D28 /* ChatView.swift */,
+				E98F1CFD2AAA351E00657D28 /* RefChatView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E97913B12A50A84D0061B746 /* osu!Player */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E97913C02A50A84F0061B746 /* Build configuration list for PBXNativeTarget "osu!Player" */;
+			buildPhases = (
+				E97913AE2A50A84D0061B746 /* Sources */,
+				E97913AF2A50A84D0061B746 /* Frameworks */,
+				E97913B02A50A84D0061B746 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "osu!Player";
+			packageProductDependencies = (
+				E9A120442A7EED1D0000540F /* MarqueeText */,
+			);
+			productName = "osu!Player";
+			productReference = E97913B22A50A84D0061B746 /* osu!Player.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E97913AA2A50A84D0061B746 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					E97913B12A50A84D0061B746 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+				};
+			};
+			buildConfigurationList = E97913AD2A50A84D0061B746 /* Build configuration list for PBXProject "osu!Player" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E97913A92A50A84D0061B746;
+			packageReferences = (
+				E9A120432A7EED1D0000540F /* XCRemoteSwiftPackageReference "MarqueeText" */,
+			);
+			productRefGroup = E97913B32A50A84D0061B746 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E97913B12A50A84D0061B746 /* osu!Player */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E97913B02A50A84D0061B746 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E97913BD2A50A84F0061B746 /* Preview Assets.xcassets in Resources */,
+				E97E56DC2A53675A004B77F3 /* triangles.mp3 in Resources */,
+				E97913BA2A50A84F0061B746 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E97913AE2A50A84D0061B746 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E99EF45B2AA8EE190049BB03 /* MainMenuView.swift in Sources */,
+				E98F1CFA2AAA340A00657D28 /* SettingsView.swift in Sources */,
+				E98F1CFE2AAA351E00657D28 /* RefChatView.swift in Sources */,
+				E98F1CF82AAA339200657D28 /* PlaylistView.swift in Sources */,
+				E97913B82A50A84D0061B746 /* MainView.swift in Sources */,
+				E98F1CFC2AAA345100657D28 /* ChatView.swift in Sources */,
+				E97D10232A807EF5005A27DF /* MainController.swift in Sources */,
+				E98F1CF62AAA333000657D28 /* SongView.swift in Sources */,
+				E9A519222A816F9600DFB28F /* KeystrokeView.swift in Sources */,
+				E97913B62A50A84D0061B746 /* osu_PlayerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		E97913BE2A50A84F0061B746 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E97913BF2A50A84F0061B746 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E97913C12A50A84F0061B746 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"osu!Player/Preview Content\"";
+				DEVELOPMENT_TEAM = 2A4QGT7S67;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "osu-Player-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Glow.osu-Player";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E97913C22A50A84F0061B746 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"osu!Player/Preview Content\"";
+				DEVELOPMENT_TEAM = 2A4QGT7S67;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "osu-Player-Info.plist";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Glow.osu-Player";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E97913AD2A50A84D0061B746 /* Build configuration list for PBXProject "osu!Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E97913BE2A50A84F0061B746 /* Debug */,
+				E97913BF2A50A84F0061B746 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E97913C02A50A84F0061B746 /* Build configuration list for PBXNativeTarget "osu!Player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E97913C12A50A84F0061B746 /* Debug */,
+				E97913C22A50A84F0061B746 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E9A120432A7EED1D0000540F /* XCRemoteSwiftPackageReference "MarqueeText" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/joekndy/MarqueeText.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E9A120442A7EED1D0000540F /* MarqueeText */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E9A120432A7EED1D0000540F /* XCRemoteSwiftPackageReference "MarqueeText" */;
+			productName = MarqueeText;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E97913AA2A50A84D0061B746 /* Project object */;
+}
