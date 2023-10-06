@@ -234,10 +234,10 @@ struct MainMenuView: View {
                         if !editing, let player = songInfo.audioPlayer {
                             if songInfo.playingBol {
                                 player.pause()
-                                //songInfo.playingBol = false
+                                songInfo.playingBol = false
                                 player.currentTime = songInfo.currentSongTime
                                 player.play()
-                                //songInfo.playingBol = true
+                                songInfo.playingBol = true
                             }
                             else {
                                 player.currentTime = songInfo.currentSongTime
@@ -386,12 +386,23 @@ struct MainMenuView: View {
         }                           //Geometry Reader
         .onAppear {
             
+            
             Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { _ in
                 songInfo.audioPlayer?.updateMeters()
                 
                 let avgPower = songInfo.audioPlayer?.averagePower(forChannel: 0) ?? -160
                 let level = 19 * pow(10, avgPower / 20) + 1
                 meterLevels = getLevels(powLevel: level)
+            }
+            
+            songInfo.totalSongTime = songInfo.audioPlayer?.duration ?? 0.0
+            
+            songInfo.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [self] _ in
+                guard let audioPlayer = songInfo.audioPlayer else {
+                    songInfo.timer?.invalidate()
+                    return
+                }
+                songInfo.currentSongTime = audioPlayer.currentTime
             }
         }
         .onDisappear {
@@ -481,10 +492,10 @@ struct CircularAudioVisualizer: View {
     }
 }
 
-/*
+
 struct MainMenuView_Previews: PreviewProvider {
     static var previews: some View {
-        MainMenuView(pageNav: showMenu)
+        MainMenuView(pageNav: AppViewModel(), songInfo: SongInfo())
     }
 }
-*/
+

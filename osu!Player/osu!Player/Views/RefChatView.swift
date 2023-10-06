@@ -22,10 +22,9 @@ struct RefChatView: View {
     }
 }
 
-/*
+
 struct RefChatView_Previews: PreviewProvider {
     static var previews: some View {
-        RefChatView()
+        RefChatView(pageNav: AppViewModel())
     }
 }
- */

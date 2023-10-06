@@ -127,15 +127,7 @@ struct MainView: View {
             }
                     
             songInformation.audioPlayer?.play()
-            songInformation.totalSongTime = songInformation.audioPlayer?.duration ?? 0.0
             
-            songInformation.timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { [self] _ in
-                guard let audioPlayer = songInformation.audioPlayer else {
-                    songInformation.timer?.invalidate()
-                    return
-                }
-                songInformation.currentSongTime = audioPlayer.currentTime
-            }
         }                           //onAppear
     }
     

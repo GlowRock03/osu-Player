@@ -22,10 +22,10 @@ struct PlaylistView: View {
     }
 }
 
-/*
+
 struct PlaylistView_Previews: PreviewProvider {
     static var previews: some View {
-        PlaylistView()
+        PlaylistView(pageNav: AppViewModel())
     }
 }
-*/
+

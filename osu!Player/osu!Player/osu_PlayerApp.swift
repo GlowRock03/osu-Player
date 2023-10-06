@@ -11,7 +11,8 @@ import SwiftUI
 struct osu_PlayerApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            //MainView()
+            KeystrokeView(pageNav: AppViewModel())      //testing only,     REMOVE LATER
         }
     }                               //View
 }
