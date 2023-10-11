@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-let rectangleAmount = 100
+let rectangleAmount = 60
 
 struct KeystrokeView: View {
     
@@ -18,7 +18,7 @@ struct KeystrokeView: View {
         var heldTime: Double
         var stopTime: Double
         var growthTimer: Timer?
-        var endStrokeTimer: Timer?
+        var offsetTimer: Timer?
         init() {
             height = 0.0
             offset = 0.0
@@ -30,14 +30,14 @@ struct KeystrokeView: View {
     @ObservedObject var pageNav: AppViewModel
     
     @State private var zTap = false
-    @State private var zTapLogic = false
+    @State private var zTapGate = false
     @State private var zBarIndex = 0
-    @State private var zRectangleArray = [RectangleState](repeating: RectangleState(), count: rectangleAmount)       //count may need to scaled for screen size, note this is also in ForEach{}
+    @State private var zBars = [RectangleState](repeating: RectangleState(), count: rectangleAmount)       //count may need to scaled for screen size, note this is also in ForEach{}
     
     @State private var xTap = false
-    @State private var xTapLogic = false
+    @State private var xTapGate = false
     @State private var xBarIndex = 0
-    @State private var xRectangleArray = [RectangleState](repeating: RectangleState(), count: rectangleAmount)       //count may need to scaled for screen size, note this is also in ForEach{}
+    @State private var xBars = [RectangleState](repeating: RectangleState(), count: rectangleAmount)       //count may need to scaled for screen size, note this is also in ForEach{}
 
     var body: some View {
         ZStack {
@@ -53,10 +53,10 @@ struct KeystrokeView: View {
                             ZStack {
                                 ForEach(0...rectangleAmount - 1, id: \.self) { i in
                                     Rectangle()                                 //stroke bar
-                                        .frame(width: 80, height: zRectangleArray[i].height)
+                                        .frame(width: 80, height: zBars[i].height)
                                         .foregroundColor(Color.green)
-                                        .offset(y: zRectangleArray[i].offset - (zRectangleArray[i].height / 2) - 115)
-                                        .scaleEffect(CGSize(width: 1.0, height: -1.0), anchor: .bottomLeading)
+                                        .offset(y: zBars[i].offset - (zBars[i].height / 2) - 115)
+                                        .scaleEffect(CGSize(width: 1.0, height: -1.0), anchor: .topLeading)
                                 }
                             }
                         }
@@ -76,31 +76,28 @@ struct KeystrokeView: View {
                                     .onChanged( { _ in
                                         if !zTap {                  //logic here to only start the animation on the intial press
                                             zTap = true             //ensures when dragged that the animation doesn't start again
-                                            zTapLogic = true
+                                            zTapGate = true
                                         }
                                         else {
-                                            zTapLogic = false
+                                            zTapGate = false
                                         }
                                         
-                                        if zTap && zTapLogic {      //start animation
+                                        if zTap && zTapGate {      //start animation
                                             let intervalIndex = zBarIndex
-                                            zGrowStroke(index: intervalIndex)
+                                            zGrowBar(index: intervalIndex)
                                         }
                                     })
                                     .onEnded( { _ in
-                                        let stopTime: DispatchTime = .now()
                                         let finishIndex = zBarIndex
-                                        let roundedTime = round(zRectangleArray[finishIndex].heldTime * 100) / 100.0
-                                        let diff = getNextIntervalEndTime(heldTime: roundedTime) - roundedTime
-                                        zEndTimer(letGo: stopTime, timeDiff: diff, index: finishIndex)
-                                        if zBarIndex == zRectangleArray.count - 1 {
+                                        zOffsetBar(index: finishIndex)
+                                        if zBarIndex == zBars.count - 1 {
                                             zBarIndex = 0
                                         }
                                         else {
                                             zBarIndex = zBarIndex + 1
                                         }
                                         zTap = false
-                                        zTapLogic = false
+                                        zTapGate = false
                                     })
                                 )
                         }
@@ -110,10 +107,10 @@ struct KeystrokeView: View {
                             ZStack {
                                 ForEach(0...rectangleAmount - 1, id: \.self) { i in
                                     Rectangle()                                 //stroke bar
-                                        .frame(width: 80, height: xRectangleArray[i].height)
+                                        .frame(width: 80, height: xBars[i].height)
                                         .foregroundColor(Color.green)
-                                        .offset(y: xRectangleArray[i].offset - (xRectangleArray[i].height / 2) - 115)
-                                        .scaleEffect(CGSize(width: 1.0, height: -1.0), anchor: .bottomLeading)
+                                        .offset(y: xBars[i].offset - (xBars[i].height / 2) - 115)
+                                        .scaleEffect(CGSize(width: 1.0, height: -1.0), anchor: .topLeading)
                                 }
                             }
                         }
@@ -133,31 +130,28 @@ struct KeystrokeView: View {
                                     .onChanged( { _ in
                                         if !xTap {                  //logic here to only start the animation on the intial press
                                             xTap = true             //ensures when dragged that the animation doesn't start again
-                                            xTapLogic = true
+                                            xTapGate = true
                                         }
                                         else {
-                                            xTapLogic = false
+                                            xTapGate = false
                                         }
                                         
-                                        if xTap && xTapLogic {      //start animation
+                                        if xTap && xTapGate {      //start animation
                                             let intervalIndex = xBarIndex
-                                            xGrowStroke(index: intervalIndex)
+                                            xGrowBar(index: intervalIndex)
                                         }
                                     })
                                     .onEnded( { _ in
-                                        let stopTime: DispatchTime = .now()
                                         let finishIndex = xBarIndex
-                                        let roundedTime = round(xRectangleArray[finishIndex].heldTime * 100) / 100.0
-                                        let diff = getNextIntervalEndTime(heldTime: roundedTime) - roundedTime
-                                        xEndTimer(letGo: stopTime, timeDiff: diff, index: finishIndex)
-                                        if xBarIndex == xRectangleArray.count - 1 {
+                                        xOffsetBar(index: finishIndex)
+                                        if xBarIndex == xBars.count - 1 {
                                             xBarIndex = 0
                                         }
                                         else {
                                             xBarIndex = xBarIndex + 1
                                         }
                                         xTap = false
-                                        xTapLogic = false
+                                        xTapGate = false
                                     })
                                 )
                         }
@@ -174,111 +168,63 @@ struct KeystrokeView: View {
         }
     }
     
-    private func zGrowStroke(index: Int) {
-        zRectangleArray[index].growthTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
+    private func zGrowBar(index: Int) {
+        zBars[index].growthTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
             if zTap {
-                let roundedTimer = round(zRectangleArray[index].heldTime * 100) / 100.0
-                if roundedTimer.truncatingRemainder(dividingBy: 4) == 0 {
-                    zStartStroke(intervalTime: Int(roundedTimer), index: index)
-                }
-                zRectangleArray[index].heldTime += 0.01
-                zRectangleArray[index].height += 3
-                zRectangleArray[index].offset += 3
+                zBars[index].heldTime += 0.01
+                zBars[index].height += 3
             }
             else {
-                zRectangleArray[index].growthTimer?.invalidate()
-                zRectangleArray[index].growthTimer = nil
+                zBars[index].growthTimer?.invalidate()
+                zBars[index].growthTimer = nil
             }
         }
     }
     
-    private func zEndTimer(letGo: DispatchTime, timeDiff: Double, index: Int) {
-        if !(zRectangleArray[index].height >= 500) {
-            DispatchQueue.main.asyncAfter(deadline: letGo + 2) {
-                zRectangleArray[index].endStrokeTimer?.invalidate()
-                zRectangleArray[index].endStrokeTimer = nil
-                zRectangleArray[index].stopTime = 0
-                zRectangleArray[index].offset = 0
-                zRectangleArray[index].height = 0.0
-                zRectangleArray[index].heldTime = 0
+    private func zOffsetBar(index: Int) {
+        zBars[index].offsetTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
+            if (zBars[index].stopTime <= 2.0) {
+                zBars[index].offset += 3
+                zBars[index].stopTime += 0.01
             }
-        }
-        else {
-            DispatchQueue.main.asyncAfter(deadline: letGo + (timeDiff - 0.08)) {
-                zRectangleArray[index].endStrokeTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
-                    if zRectangleArray[index].stopTime <= 2 {
-                        zRectangleArray[index].stopTime += 0.01
-                        zRectangleArray[index].offset += 3
-                    }
-                    else {
-                        zRectangleArray[index].endStrokeTimer?.invalidate()
-                        zRectangleArray[index].endStrokeTimer = nil
-                        zRectangleArray[index].stopTime = 0
-                        zRectangleArray[index].offset = 0
-                        zRectangleArray[index].height = 0.0
-                        zRectangleArray[index].heldTime = 0
-                    }
-                }
+            else {
+                zBars[index].offsetTimer?.invalidate()
+                zBars[index].offsetTimer = nil
+                zBars[index].stopTime = 0
+                zBars[index].offset = 0
+                zBars[index].height = 0.0
+                zBars[index].heldTime = 0
             }
         }
     }
     
-    private func zStartStroke(intervalTime: Int, index: Int) {
-        withAnimation(.linear(duration: 4.0)) {
-            zRectangleArray[index].offset += 1200
-        }
-    }
-    
-    private func xGrowStroke(index: Int) {
-        xRectangleArray[index].growthTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
+    private func xGrowBar(index: Int) {
+        xBars[index].growthTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
             if xTap {
-                let roundedTimer = round(xRectangleArray[index].heldTime * 100) / 100.0
-                if roundedTimer.truncatingRemainder(dividingBy: 4) == 0 {
-                    xStartStroke(intervalTime: Int(roundedTimer), index: index)
-                }
-                xRectangleArray[index].heldTime += 0.01
-                xRectangleArray[index].height += 3
-                xRectangleArray[index].offset += 3
+                xBars[index].heldTime += 0.01
+                xBars[index].height += 3
             }
             else {
-                xRectangleArray[index].growthTimer?.invalidate()
-                xRectangleArray[index].growthTimer = nil
+                xBars[index].growthTimer?.invalidate()
+                xBars[index].growthTimer = nil
             }
         }
     }
     
-    private func xEndTimer(letGo: DispatchTime, timeDiff: Double, index: Int) {
-        if !(xRectangleArray[index].height >= 500) {
-            DispatchQueue.main.asyncAfter(deadline: letGo + 2) {
-                xRectangleArray[index].endStrokeTimer?.invalidate()
-                xRectangleArray[index].endStrokeTimer = nil
-                xRectangleArray[index].stopTime = 0
-                xRectangleArray[index].offset = 0
-                xRectangleArray[index].height = 0.0
-                xRectangleArray[index].heldTime = 0
+    private func xOffsetBar(index: Int) {
+        xBars[index].offsetTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
+            if (xBars[index].stopTime <= 2.0) {
+                xBars[index].offset += 3
+                xBars[index].stopTime += 0.01
             }
-        }
-        DispatchQueue.main.asyncAfter(deadline: letGo + (timeDiff - 0.08)) {
-            xRectangleArray[index].endStrokeTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { _ in
-                if xRectangleArray[index].stopTime <= 2 {
-                    xRectangleArray[index].stopTime += 0.01
-                    xRectangleArray[index].offset += 3
-                }
-                else {
-                    xRectangleArray[index].endStrokeTimer?.invalidate()
-                    xRectangleArray[index].endStrokeTimer = nil
-                    xRectangleArray[index].stopTime = 0
-                    xRectangleArray[index].offset = 0
-                    xRectangleArray[index].height = 0.0
-                    xRectangleArray[index].heldTime = 0
-                }
+            else {
+                xBars[index].offsetTimer?.invalidate()
+                xBars[index].offsetTimer = nil
+                xBars[index].stopTime = 0
+                xBars[index].offset = 0
+                xBars[index].height = 0.0
+                xBars[index].heldTime = 0
             }
-        }
-    }
-    
-    private func xStartStroke(intervalTime: Int, index: Int) {
-        withAnimation(.linear(duration: 4.0)) {
-            xRectangleArray[index].offset += 1200
         }
     }
     

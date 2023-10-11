@@ -124,6 +124,7 @@ struct MainView: View {
                 }
             catch {
                 print(error)
+                print("caught an error")
             }
                     
             songInformation.audioPlayer?.play()
